@@ -48,6 +48,19 @@ Public Class Form1
         ABE_BOTTOM = 3
     End Enum
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Try
+            For Each prog As Process In Process.GetProcesses
+                If prog.ProcessName = "Aerial" Then
+                    If Not prog.Id = Process.GetCurrentProcess.Id Then
+                        prog.Kill()
+                    End If
+                End If
+            Next
+        Catch
+        End Try
+
+
         Try
 
             Using ts As TaskService = New TaskService()
