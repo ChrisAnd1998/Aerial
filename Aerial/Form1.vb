@@ -2,6 +2,7 @@
 
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
+Imports Microsoft.Win32.TaskScheduler
 
 Public Class Form1
 
@@ -47,7 +48,76 @@ Public Class Form1
         ABE_BOTTOM = 3
     End Enum
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
 
+            Using ts As TaskService = New TaskService()
+
+                Dim td = ts.GetTask("Aerial")
+
+                Dim cfg As String = Nothing
+
+                cfg = td.Definition.Actions.ToString.Replace(System.AppDomain.CurrentDomain.BaseDirectory & "Aerial.exe", "")
+
+
+                Dim arguments() As String = cfg.Split(CType(" ", Char()))
+
+                For Each argument In arguments
+                    Dim val() As String = Split(argument, "=")
+                    '  Console.WriteLine(val(0))
+
+                    If argument.Contains("-pa") Then
+                        CheckBox1.Checked = True
+                        NumericUpDown1.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-pb") Then
+                        CheckBox2.Checked = True
+                        NumericUpDown2.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-pc") Then
+                        CheckBox3.Checked = True
+                        NumericUpDown3.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-pd") Then
+                        CheckBox4.Checked = True
+                        NumericUpDown4.Value = CDec(val(1))
+                    End If
+
+
+                    If argument.Contains("-sa") Then
+                        CheckBox5.Checked = True
+                        NumericUpDown5.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-sb") Then
+                        CheckBox6.Checked = True
+                        NumericUpDown6.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-sc") Then
+                        CheckBox7.Checked = True
+                        NumericUpDown7.Value = CDec(val(1))
+                    End If
+
+                    If argument.Contains("-sd") Then
+                        CheckBox8.Checked = True
+                        NumericUpDown8.Value = CDec(val(1))
+                    End If
+
+                Next
+
+                ' Console.WriteLine(td.Definition.Actions.ToString)
+
+                Dim lg As LogonTrigger = CType(td.Definition.Triggers.Item(0), LogonTrigger)
+                Dim times As TimeSpan = lg.Delay
+
+                NumericUpDown9.Value = times.Seconds
+            End Using
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
 
 
     End Sub
@@ -69,6 +139,13 @@ Public Class Form1
         reset()
 
 
+        go()
+
+
+
+    End Sub
+
+    Sub go()
         Dim allScreens = Screen.AllScreens
 
 
@@ -380,6 +457,74 @@ Public Class Form1
         End If
 
 
+
+
+        Dim parameters As String
+
+        If CheckBox1.Checked = True Then
+            parameters = parameters & "-pa=" & NumericUpDown1.Value
+        End If
+        If CheckBox2.Checked = True Then
+            parameters = parameters & "-pb=" & NumericUpDown2.Value
+        End If
+        If CheckBox3.Checked = True Then
+            parameters = parameters & "-pc=" & NumericUpDown3.Value
+        End If
+        If CheckBox4.Checked = True Then
+            parameters = parameters & "-pd=" & NumericUpDown4.Value
+        End If
+
+        If CheckBox5.Checked = True Then
+            parameters = parameters & "-sa=" & NumericUpDown5.Value
+        End If
+        If CheckBox6.Checked = True Then
+            parameters = parameters & "-sb=" & NumericUpDown6.Value
+        End If
+        If CheckBox7.Checked = True Then
+            parameters = parameters & "-sc=" & NumericUpDown7.Value
+        End If
+        If CheckBox8.Checked = True Then
+            parameters = parameters & "-sd=" & NumericUpDown8.Value
+        End If
+
+        Try
+            Using ts As TaskService = New TaskService()
+                ts.RootFolder.DeleteTask("Aerial")
+            End Using
+        Catch ex As Exception
+        End Try
+
+        Try
+            Using ts As TaskService = New TaskService()
+
+                Dim td As TaskDefinition = ts.NewTask()
+                Dim delay As Integer = CInt(NumericUpDown9.Value)
+
+                td.RegistrationInfo.Description = "Claim desktop spaces"
+
+                td.Triggers.Add(New LogonTrigger With {
+                    .UserId = System.Security.Principal.WindowsIdentity.GetCurrent().Name,
+                    .Delay = TimeSpan.FromSeconds(delay)})
+
+                td.Settings.DisallowStartIfOnBatteries = False
+                td.Settings.StopIfGoingOnBatteries = False
+                td.Settings.RunOnlyIfIdle = False
+                td.Settings.IdleSettings.RestartOnIdle = False
+                td.Settings.IdleSettings.StopOnIdleEnd = False
+                td.Settings.Hidden = True
+                td.Settings.ExecutionTimeLimit = TimeSpan.Zero
+                td.RegistrationInfo.Author = "Chris Andriessen"
+
+                td.Actions.Add(New ExecAction(System.AppDomain.CurrentDomain.BaseDirectory & "Aerial.exe", parameters, Nothing))
+
+
+                ts.RootFolder.RegisterTaskDefinition("Aerial", td)
+
+            End Using
+        Catch ex As Exception
+            ' MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -388,5 +533,81 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
+    End Sub
+
+    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+
+        Dim arguments() As String = Environment.GetCommandLineArgs
+        Dim tt As String
+
+        Try
+            tt = arguments(1).ToString
+        Catch ex As Exception
+            tt = ""
+        End Try
+
+
+        If tt.ToString.Contains("=") Then
+            For Each argument In arguments
+                Dim val() As String = Split(argument, "=")
+                If argument.Contains("-pa") Then
+                    CheckBox1.Checked = True
+                    NumericUpDown1.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-pb") Then
+                    CheckBox2.Checked = True
+                    NumericUpDown2.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-pc") Then
+                    CheckBox3.Checked = True
+                    NumericUpDown3.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-pd") Then
+                    CheckBox4.Checked = True
+                    NumericUpDown4.Value = CDec(val(1))
+                End If
+
+
+                If argument.Contains("-sa") Then
+                    CheckBox5.Checked = True
+                    NumericUpDown5.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-sb") Then
+                    CheckBox6.Checked = True
+                    NumericUpDown6.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-sc") Then
+                    CheckBox7.Checked = True
+                    NumericUpDown7.Value = CDec(val(1))
+                End If
+
+                If argument.Contains("-sd") Then
+                    CheckBox8.Checked = True
+                    NumericUpDown8.Value = CDec(val(1))
+                End If
+            Next
+
+            go()
+
+            Me.Visible = False
+            Me.Hide()
+            Me.ShowInTaskbar = False
+        End If
+
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            Using ts As TaskService = New TaskService()
+                ts.RootFolder.DeleteTask("Aerial")
+            End Using
+        Catch ex As Exception
+        End Try
     End Sub
 End Class
