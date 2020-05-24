@@ -159,6 +159,7 @@ Partial Class Form1
         'NumericUpDown1
         '
         Me.NumericUpDown1.Location = New System.Drawing.Point(9, 46)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown1.TabIndex = 25
@@ -166,6 +167,7 @@ Partial Class Form1
         'NumericUpDown2
         '
         Me.NumericUpDown2.Location = New System.Drawing.Point(115, 46)
+        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown2.TabIndex = 26
@@ -173,6 +175,7 @@ Partial Class Form1
         'NumericUpDown3
         '
         Me.NumericUpDown3.Location = New System.Drawing.Point(221, 46)
+        Me.NumericUpDown3.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown3.TabIndex = 27
@@ -180,6 +183,7 @@ Partial Class Form1
         'NumericUpDown4
         '
         Me.NumericUpDown4.Location = New System.Drawing.Point(327, 46)
+        Me.NumericUpDown4.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown4.TabIndex = 28
@@ -187,6 +191,7 @@ Partial Class Form1
         'NumericUpDown5
         '
         Me.NumericUpDown5.Location = New System.Drawing.Point(9, 46)
+        Me.NumericUpDown5.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown5.Name = "NumericUpDown5"
         Me.NumericUpDown5.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown5.TabIndex = 29
@@ -194,6 +199,7 @@ Partial Class Form1
         'NumericUpDown6
         '
         Me.NumericUpDown6.Location = New System.Drawing.Point(115, 46)
+        Me.NumericUpDown6.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown6.Name = "NumericUpDown6"
         Me.NumericUpDown6.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown6.TabIndex = 30
@@ -201,6 +207,7 @@ Partial Class Form1
         'NumericUpDown7
         '
         Me.NumericUpDown7.Location = New System.Drawing.Point(221, 46)
+        Me.NumericUpDown7.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown7.Name = "NumericUpDown7"
         Me.NumericUpDown7.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown7.TabIndex = 31
@@ -208,6 +215,7 @@ Partial Class Form1
         'NumericUpDown8
         '
         Me.NumericUpDown8.Location = New System.Drawing.Point(327, 46)
+        Me.NumericUpDown8.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NumericUpDown8.Name = "NumericUpDown8"
         Me.NumericUpDown8.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown8.TabIndex = 32
