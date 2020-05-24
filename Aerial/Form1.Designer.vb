@@ -47,6 +47,7 @@ Partial Class Form1
         Me.NumericUpDown9 = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -293,11 +294,21 @@ Partial Class Form1
         Me.Button3.Text = "Remove"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(105, 323)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(88, 27)
+        Me.Button4.TabIndex = 39
+        Me.Button4.Text = "Hide"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(461, 361)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.NumericUpDown9)
@@ -354,4 +365,5 @@ Partial Class Form1
     Friend WithEvents NumericUpDown9 As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

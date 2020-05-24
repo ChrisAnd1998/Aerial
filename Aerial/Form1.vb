@@ -101,22 +101,22 @@ Public Class Form1
 
                     If argument.Contains("-sa") Then
                         CheckBox5.Checked = True
-                        NumericUpDown5.Value = CDec(val(1))
+                        NumericUpDown8.Value = CDec(val(1))
                     End If
 
                     If argument.Contains("-sb") Then
                         CheckBox6.Checked = True
-                        NumericUpDown6.Value = CDec(val(1))
+                        NumericUpDown7.Value = CDec(val(1))
                     End If
 
                     If argument.Contains("-sc") Then
                         CheckBox7.Checked = True
-                        NumericUpDown7.Value = CDec(val(1))
+                        NumericUpDown6.Value = CDec(val(1))
                     End If
 
                     If argument.Contains("-sd") Then
                         CheckBox8.Checked = True
-                        NumericUpDown8.Value = CDec(val(1))
+                        NumericUpDown5.Value = CDec(val(1))
                     End If
 
                 Next
@@ -318,7 +318,7 @@ Public Class Form1
 
 
         'Secondary
-        If CheckBox8.Checked = True Then
+        If CheckBox5.Checked = True Then
             For Each screen In allScreens
                 If screen.Primary = False Then
                     Dim abd As New APPBARDATA
@@ -346,7 +346,7 @@ Public Class Form1
                     SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
-                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown5.Value)
+                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown8.Value)
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
 
@@ -475,29 +475,29 @@ Public Class Form1
         Dim parameters As String
 
         If CheckBox1.Checked = True Then
-            parameters = parameters & "-pa=" & NumericUpDown1.Value
+            parameters = parameters & " -pa=" & NumericUpDown1.Value
         End If
         If CheckBox2.Checked = True Then
-            parameters = parameters & "-pb=" & NumericUpDown2.Value
+            parameters = parameters & " -pb=" & NumericUpDown2.Value
         End If
         If CheckBox3.Checked = True Then
-            parameters = parameters & "-pc=" & NumericUpDown3.Value
+            parameters = parameters & " -pc=" & NumericUpDown3.Value
         End If
         If CheckBox4.Checked = True Then
-            parameters = parameters & "-pd=" & NumericUpDown4.Value
+            parameters = parameters & " -pd=" & NumericUpDown4.Value
         End If
 
-        If CheckBox5.Checked = True Then
-            parameters = parameters & "-sa=" & NumericUpDown5.Value
-        End If
-        If CheckBox6.Checked = True Then
-            parameters = parameters & "-sb=" & NumericUpDown6.Value
+        If CheckBox8.Checked = True Then
+            parameters = parameters & " -sa=" & NumericUpDown5.Value
         End If
         If CheckBox7.Checked = True Then
-            parameters = parameters & "-sc=" & NumericUpDown7.Value
+            parameters = parameters & " -sb=" & NumericUpDown6.Value
         End If
-        If CheckBox8.Checked = True Then
-            parameters = parameters & "-sd=" & NumericUpDown8.Value
+        If CheckBox6.Checked = True Then
+            parameters = parameters & " -sc=" & NumericUpDown7.Value
+        End If
+        If CheckBox5.Checked = True Then
+            parameters = parameters & " -sd=" & NumericUpDown8.Value
         End If
 
         Try
@@ -586,22 +586,22 @@ Public Class Form1
 
                 If argument.Contains("-sa") Then
                     CheckBox5.Checked = True
-                    NumericUpDown5.Value = CDec(val(1))
+                    NumericUpDown8.Value = CDec(val(1))
                 End If
 
                 If argument.Contains("-sb") Then
                     CheckBox6.Checked = True
-                    NumericUpDown6.Value = CDec(val(1))
+                    NumericUpDown7.Value = CDec(val(1))
                 End If
 
                 If argument.Contains("-sc") Then
                     CheckBox7.Checked = True
-                    NumericUpDown7.Value = CDec(val(1))
+                    NumericUpDown6.Value = CDec(val(1))
                 End If
 
                 If argument.Contains("-sd") Then
                     CheckBox8.Checked = True
-                    NumericUpDown8.Value = CDec(val(1))
+                    NumericUpDown5.Value = CDec(val(1))
                 End If
             Next
 
@@ -622,5 +622,9 @@ Public Class Form1
             End Using
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        End
     End Sub
 End Class
