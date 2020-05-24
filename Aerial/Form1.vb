@@ -65,6 +65,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         reset()
 
 
@@ -102,7 +103,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.bottom = abd.rc.top + CInt(TextBox1.Text)
+                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown1.Value)
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
 
@@ -139,7 +140,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.top = abd.rc.bottom - CInt(TextBox3.Text)
+                    abd.rc.top = abd.rc.bottom - CInt(NumericUpDown2.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -177,7 +178,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.right = abd.rc.left + CInt(TextBox4.Text)
+                    abd.rc.right = abd.rc.left + CInt(NumericUpDown3.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -216,7 +217,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.left = abd.rc.right - CInt(TextBox5.Text)
+                    abd.rc.left = abd.rc.right - CInt(NumericUpDown4.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -255,7 +256,7 @@ Public Class Form1
                     SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
-                    abd.rc.bottom = abd.rc.top + CInt(TextBox8.Text)
+                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown5.Value)
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
 
@@ -292,7 +293,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.top = abd.rc.bottom - CInt(TextBox7.Text)
+                    abd.rc.top = abd.rc.bottom - CInt(NumericUpDown6.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -331,7 +332,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.right = abd.rc.left + CInt(TextBox6.Text)
+                    abd.rc.right = abd.rc.left + CInt(NumericUpDown7.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -369,7 +370,7 @@ Public Class Form1
                     SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
 
 
-                    abd.rc.left = abd.rc.right - CInt(TextBox5.Text)
+                    abd.rc.left = abd.rc.right - CInt(NumericUpDown8.Value)
 
 
                     SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
@@ -383,5 +384,9 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         reset()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
     End Sub
 End Class
