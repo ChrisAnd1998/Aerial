@@ -100,23 +100,23 @@ Public Class Form1
 
 
                     If argument.Contains("-sa") Then
-                        CheckBox5.Checked = True
-                        NumericUpDown8.Value = CDec(val(1))
+                        CheckBox8.Checked = True
+                        NumericUpDown5.Value = CDec(val(1))
                     End If
 
                     If argument.Contains("-sb") Then
-                        CheckBox6.Checked = True
-                        NumericUpDown7.Value = CDec(val(1))
-                    End If
-
-                    If argument.Contains("-sc") Then
                         CheckBox7.Checked = True
                         NumericUpDown6.Value = CDec(val(1))
                     End If
 
+                    If argument.Contains("-sc") Then
+                        CheckBox6.Checked = True
+                        NumericUpDown7.Value = CDec(val(1))
+                    End If
+
                     If argument.Contains("-sd") Then
-                        CheckBox8.Checked = True
-                        NumericUpDown5.Value = CDec(val(1))
+                        CheckBox5.Checked = True
+                        NumericUpDown8.Value = CDec(val(1))
                     End If
 
                 Next
@@ -159,13 +159,25 @@ Public Class Form1
     End Sub
 
     Sub go()
+
+        Button1.Enabled = False
+
+        Try
+            For Each ff As Form In Me.OwnedForms
+                ff.Close()
+            Next
+        Catch
+        End Try
+
+        System.Threading.Thread.Sleep(300) : Application.DoEvents()
+
         Dim allScreens = Screen.AllScreens
 
 
+        For Each screen In allScreens
+            'Primary
+            If CheckBox1.Checked = True Then
 
-        'Primary
-        If CheckBox1.Checked = True Then
-            For Each screen In allScreens
                 If screen.Primary = True Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -189,20 +201,22 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.bottom = abd.rc.top + CInt(NumericUpDown1.Value)
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
 
-        If CheckBox2.Checked = True Then
-            For Each screen In allScreens
+            End If
+
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
+
+            If CheckBox2.Checked = True Then
+                ' For Each screen In allScreens
                 If screen.Primary = True Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -226,21 +240,23 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.top = abd.rc.bottom - CInt(NumericUpDown2.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                ' Next
+            End If
 
-        If CheckBox3.Checked = True Then
-            For Each screen In allScreens
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
+
+            If CheckBox3.Checked = True Then
+                '   For Each screen In allScreens
                 If screen.Primary = True Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -264,22 +280,23 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.right = abd.rc.left + CInt(NumericUpDown3.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                '  Next
+            End If
 
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
 
-        If CheckBox4.Checked = True Then
-            For Each screen In allScreens
+            If CheckBox4.Checked = True Then
+                '  For Each screen In allScreens
                 If screen.Primary = True Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -303,23 +320,24 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.left = abd.rc.right - CInt(NumericUpDown4.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                '  Next
+            End If
 
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
 
-        'Secondary
-        If CheckBox5.Checked = True Then
-            For Each screen In allScreens
+            'Secondary
+            If CheckBox8.Checked = True Then
+                '   For Each screen In allScreens
                 If screen.Primary = False Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -343,19 +361,21 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
-                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown8.Value)
+                    abd.rc.bottom = abd.rc.top + CInt(NumericUpDown5.Value)
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                '  Next
+            End If
 
-        If CheckBox7.Checked = True Then
-            For Each screen In allScreens
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
+
+            If CheckBox7.Checked = True Then
+                ' For Each screen In allScreens
                 If screen.Primary = False Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -379,22 +399,24 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.top = abd.rc.bottom - CInt(NumericUpDown6.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                '  Next
+            End If
+
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
 
 
-        If CheckBox6.Checked = True Then
-            For Each screen In allScreens
+            If CheckBox6.Checked = True Then
+                '  For Each screen In allScreens
                 If screen.Primary = False Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -418,21 +440,23 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.right = abd.rc.left + CInt(NumericUpDown7.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                '  Next
+            End If
 
-        If CheckBox5.Checked = True Then
-            For Each screen In allScreens
+            System.Threading.Thread.Sleep(150) : Application.DoEvents()
+
+            If CheckBox5.Checked = True Then
+                '   For Each screen In allScreens
                 If screen.Primary = False Then
                     Dim abd As New APPBARDATA
                     abd.cbSize = Marshal.SizeOf(abd)
@@ -456,18 +480,21 @@ Public Class Form1
                     abd.rc.top = screen.WorkingArea.Top
                     abd.rc.bottom = screen.WorkingArea.Bottom
 
-                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd)
-                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd)
+                    SHAppBarMessage(CType(ABMsg.ABM_NEW, Integer), abd) : Application.DoEvents()
+                    SHAppBarMessage(CInt(ABMsg.ABM_QUERYPOS), abd) : Application.DoEvents()
 
 
                     abd.rc.left = abd.rc.right - CInt(NumericUpDown8.Value)
 
 
-                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd)
+                    SHAppBarMessage(CInt(ABMsg.ABM_SETPOS), abd) : Application.DoEvents()
 
                 End If
-            Next
-        End If
+                ' Next
+            End If
+
+
+        Next
 
 
 
@@ -538,6 +565,8 @@ Public Class Form1
             ' MessageBox.Show(ex.Message)
         End Try
 
+
+        Button1.Enabled = True
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -545,6 +574,13 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            For Each ff As Form In Me.OwnedForms
+                ff.Close()
+            Next
+        Catch
+        End Try
+
         Me.Close()
     End Sub
 
@@ -590,13 +626,13 @@ Public Class Form1
                 End If
 
                 If argument.Contains("-sb") Then
-                    CheckBox6.Checked = True
-                    NumericUpDown7.Value = CDec(val(1))
+                    CheckBox7.Checked = True
+                    NumericUpDown6.Value = CDec(val(1))
                 End If
 
                 If argument.Contains("-sc") Then
-                    CheckBox7.Checked = True
-                    NumericUpDown6.Value = CDec(val(1))
+                    CheckBox6.Checked = True
+                    NumericUpDown7.Value = CDec(val(1))
                 End If
 
                 If argument.Contains("-sd") Then
@@ -625,6 +661,12 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        End
+        Me.Hide()
+        Me.ShowInTaskbar = False
+    End Sub
+
+    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseClick
+        Me.Show()
+        Me.ShowInTaskbar = True
     End Sub
 End Class

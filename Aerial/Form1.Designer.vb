@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -48,6 +49,9 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,11 +64,12 @@ Partial Class Form1
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(361, 323)
+        Me.Button1.Location = New System.Drawing.Point(500, 323)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(88, 27)
         Me.Button1.TabIndex = 0
@@ -154,7 +159,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(178, 26)
+        Me.PictureBox1.Location = New System.Drawing.Point(252, 26)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -165,65 +170,81 @@ Partial Class Form1
         '
         Me.NumericUpDown1.Location = New System.Drawing.Point(9, 46)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown1.TabIndex = 25
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown2
         '
         Me.NumericUpDown2.Location = New System.Drawing.Point(115, 46)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown2.TabIndex = 26
+        Me.NumericUpDown2.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown3
         '
         Me.NumericUpDown3.Location = New System.Drawing.Point(221, 46)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown3.TabIndex = 27
+        Me.NumericUpDown3.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown4
         '
         Me.NumericUpDown4.Location = New System.Drawing.Point(327, 46)
         Me.NumericUpDown4.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown4.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown4.TabIndex = 28
+        Me.NumericUpDown4.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown5
         '
         Me.NumericUpDown5.Location = New System.Drawing.Point(9, 46)
         Me.NumericUpDown5.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown5.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown5.Name = "NumericUpDown5"
         Me.NumericUpDown5.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown5.TabIndex = 29
+        Me.NumericUpDown5.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown6
         '
         Me.NumericUpDown6.Location = New System.Drawing.Point(115, 46)
         Me.NumericUpDown6.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown6.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown6.Name = "NumericUpDown6"
         Me.NumericUpDown6.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown6.TabIndex = 30
+        Me.NumericUpDown6.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown7
         '
         Me.NumericUpDown7.Location = New System.Drawing.Point(221, 46)
         Me.NumericUpDown7.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown7.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown7.Name = "NumericUpDown7"
         Me.NumericUpDown7.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown7.TabIndex = 31
+        Me.NumericUpDown7.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown8
         '
         Me.NumericUpDown8.Location = New System.Drawing.Point(327, 46)
         Me.NumericUpDown8.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NumericUpDown8.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown8.Name = "NumericUpDown8"
         Me.NumericUpDown8.Size = New System.Drawing.Size(100, 20)
         Me.NumericUpDown8.TabIndex = 32
+        Me.NumericUpDown8.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'GroupBox1
         '
@@ -270,16 +291,16 @@ Partial Class Form1
         '
         'NumericUpDown9
         '
-        Me.NumericUpDown9.Location = New System.Drawing.Point(339, 73)
+        Me.NumericUpDown9.Location = New System.Drawing.Point(11, 46)
         Me.NumericUpDown9.Name = "NumericUpDown9"
-        Me.NumericUpDown9.Size = New System.Drawing.Size(100, 20)
+        Me.NumericUpDown9.Size = New System.Drawing.Size(111, 20)
         Me.NumericUpDown9.TabIndex = 36
-        Me.NumericUpDown9.Value = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.NumericUpDown9.Value = New Decimal(New Integer() {6, 0, 0, 0})
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(336, 57)
+        Me.Label1.Location = New System.Drawing.Point(8, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(102, 13)
         Me.Label1.TabIndex = 37
@@ -287,9 +308,9 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(339, 99)
+        Me.Button3.Location = New System.Drawing.Point(11, 74)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 27)
+        Me.Button3.Size = New System.Drawing.Size(111, 74)
         Me.Button3.TabIndex = 38
         Me.Button3.Text = "Remove"
         Me.Button3.UseVisualStyleBackColor = True
@@ -303,15 +324,41 @@ Partial Class Form1
         Me.Button4.Text = "Hide"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "Aerial"
+        Me.NotifyIcon1.Visible = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.NumericUpDown9)
+        Me.GroupBox3.Controls.Add(Me.Button3)
+        Me.GroupBox3.Location = New System.Drawing.Point(454, 159)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(133, 158)
+        Me.GroupBox3.TabIndex = 40
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Taskschedule / Startup"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 26)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(122, 26)
+        Me.Label2.TabIndex = 41
+        Me.Label2.Text = "Author: Chris Andriessen" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Version: 1.0.4.0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(461, 361)
+        Me.ClientSize = New System.Drawing.Size(599, 361)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.NumericUpDown9)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
@@ -336,6 +383,8 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -366,4 +415,7 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents NotifyIcon1 As NotifyIcon
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label2 As Label
 End Class
