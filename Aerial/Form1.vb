@@ -187,7 +187,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -226,7 +226,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -266,7 +266,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -306,7 +306,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -347,7 +347,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -385,7 +385,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -426,7 +426,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
@@ -466,7 +466,7 @@ Public Class Form1
                     Dim ff As New Form
                     ff.AutoScaleBaseSize = New System.Drawing.Size(1, 1)
                     ff.ClientSize = New System.Drawing.Size(100, 100)
-                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+                    ff.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
                     ff.Opacity = 0
                     ff.Name = "AerialSpacer"
                     ff.ShowInTaskbar = False
